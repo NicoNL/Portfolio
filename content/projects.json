@@ -19,11 +19,11 @@
     },
     {
       "id": 3,
-      "title": "SocialVista",
-      "description": "An open-source analytics platform, integrating Facebook, Instagram, and TikTok APIs with RESTful services for real-time engagement and growth tracking. Created a responsive front-end with TypeScript for a unified dashboard.",
-      "skills": ["PHP (Laravel)", "API Integration", "JSON Parsing", "MySQL", "React", "Typescript"],
-      "image": "content/imgs/socialvista.png",
-      "projectUrl": "#"
+      "title": "VulChecker API",
+      "description": "Developed a FastAPI-based service that identifies vulnerable package versions in Linux distributions. Integrated with osv.dev database to provide real-time vulnerability checking for Debian and Ubuntu packages. Implemented efficient package version querying and response formatting for seamless vulnerability assessment.",
+      "skills": ["Python", "FastAPI", "Security", "Linux", "API Development"],
+      "image": "content/imgs/PreviewAPI.png",
+      "projectUrl": "https://github.com/NicoNL/VulChecker-API"
     }
   ]
 } 
