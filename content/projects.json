@@ -1,0 +1,29 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Jungle Juggle",
+      "description": "Led the development of a 2D action-platformer game in Java using Java for GUI interaction and behaviour. As project leader, directed a team while implementing core game logic with OOP principles, including player physics, enemies, and collectible items. Connected a lightweight SQL database to track user progress, high scores, and achievements. Demonstrated leadership skills through effective team coordination and project direction",
+      "skills": ["Java", "Object-Oriented Programming", "MySQL", "GUI Designing", "Git"],
+      "video": "content/vids/JungleJuggle.mp4",
+      "thumbnail": "content/imgs/JungleJugglePreview.png",
+      "projectUrl": "https://github.com/NicoNL/group-5/tree/master"
+    },
+    {
+      "id": 2,
+      "title": "LinkLab LMS",
+      "description": "Developed a minimalistic and fresh-looking Learning Management System that enables teachers to manage subjects and tasks, while students can explore subjects, view tasks, and upload their solutions. Features include subject management, task posting, and submission reviews for teachers, along with an intuitive interface for students to access materials and submit work.",
+      "skills": ["Laravel", "Tailwind CSS", "SQLite", "PHP", "Web Development", "Authentication"],
+      "image": "content/imgs/PreviewLMS.png",
+      "projectUrl": "https://github.com/NicoNL/LinkLab"
+    },
+    {
+      "id": 3,
+      "title": "SocialVista",
+      "description": "An open-source analytics platform, integrating Facebook, Instagram, and TikTok APIs with RESTful services for real-time engagement and growth tracking. Created a responsive front-end with TypeScript for a unified dashboard.",
+      "skills": ["PHP (Laravel)", "API Integration", "JSON Parsing", "MySQL", "React", "Typescript"],
+      "image": "content/imgs/socialvista.png",
+      "projectUrl": "#"
+    }
+  ]
+} 

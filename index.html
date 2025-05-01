@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicolas Nino | Portfolio</title>
+    <link rel="icon" type="image/png" href="content/imgs/logo_white.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -18,13 +19,14 @@
         </div>
       </div>
       <div class="options">
-        <a class="active" href="index.html">Home</a>
+        <a class="active" href="#home">Home</a>
+        <a href="#experiences">Experiences</a>
         <a href="#projects">Projects</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
       </div>
     </div>
-    <section class="introduction">
+    <section id="home" class="introduction">
       <div class="grid"></div>
       <div class="introContent">
         <div class="titles">
@@ -40,8 +42,173 @@
         </div>
       </div>
     </section>
+    <section id="experiences">
+      <div class="experiences-title">
+        <h1 class="experiences-main-title">Experiences</h1>
+      </div>
+      <div class="experiences-container">
+        <div class="carousel" id="experiences-carousel">
+        </div>
+      </div>
+    </section>
     <section id="projects">
+      <div class="projects-title">
+        <h1 class="projects-main-title">Projects</h1>
+      </div>
+      <div class="experiences-container">
+        <div class="carousel" id="projects-carousel">
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="contact-title">
+        <h1 class="contact-main-title">Contact</h1>
+      </div>
+      <div class="contact-container">
+        <div class="contact-card">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="contact-icon">📧</i>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <p>nicolasninoloz@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="contact-icon">🔗</i>
+              <div class="contact-details">
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/nicolas-nino/" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/nicolas-nino</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="contact-icon">💻</i>
+              <div class="contact-details">
+                <h3>GitHub</h3>
+                <a href="https://github.com/NicoNL" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/NicoNL</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="contact-icon">📍</i>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <p>Budapest, Hungary</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h2>Contact me</h2>
+            <form id="contactForm" onsubmit="return sendEmail(event)">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group">
+                <textarea id="message" placeholder="Your Message" required></textarea>
+              </div>
+              <button type="submit" class="project-button">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="about-title">
+        <h1 class="about-main-title">About</h1>
+      </div>
+      <div class="about-container">
+        <div class="about-card">
+          <div class="about-intro">
+            <p class="about-description">
+              Hey there! I'm a Computer Science student who's absolutely passionate about technology and innovation. 
+              I enjoy solving problems and turning them into clean, working and useful products. 
+              When I'm not working on a project or learning new things, you'll find me setting up my favorite Linux setup (Debian all the way!). 
+              I believe in maintaining a balanced life - while coding lets me be both logical and creative in the digital world, I channel that same energy into dancing salsa and bachata, staying active through running, and enjoying a good soccer match.
+            </p>
+          </div>
+          
+          <div class="about-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+              <div class="education-header">
+                <h3>Eötvös Loránd University</h3>
+                <span class="education-date">September 2022 - January 2026</span>
+              </div>
+              <p class="education-degree">BS in Computer Science (GPA: 4.1)</p>
+              <p class="education-location">Budapest, Hungary</p>
+            </div>
+          </div>
 
+          <div class="about-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+              <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-grid">
+                  <span class="skill-tag">C</span>
+                  <span class="skill-tag">C++</span>
+                  <span class="skill-tag">C#</span>
+                  <span class="skill-tag">Java</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Javascript</span>
+                  <span class="skill-tag">PHP</span>
+                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag">SQL</span>
+                  <span class="skill-tag">Typescript</span>
+                </div>
+              </div>
+              
+              <div class="skill-category">
+                <h3>Technologies & Tools</h3>
+                <div class="skills-grid">
+                  <span class="skill-tag">Laravel</span>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">OpenGL</span>
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag">MySQL</span>
+                  <span class="skill-tag">PL/SQL</span>
+                  <span class="skill-tag">Linux(Debian)</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>Programming Knowledge</h3>
+                <div class="skills-grid">
+                  <span class="skill-tag">Object-Oriented Programming</span>
+                  <span class="skill-tag">ADS</span>
+                  <span class="skill-tag">Concurrent Programming</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>Languages</h3>
+                <div class="skills-grid">
+                  <span class="skill-tag">English (Fluent)</span>
+                  <span class="skill-tag">Spanish (Native)</span>
+                  <span class="skill-tag">Hungarian (Elementary)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h2 class="section-title">Awards</h2>
+            <div class="award-card">
+              <div class="award-header">
+                <h3>Stipendium Hungaricum Scholarship</h3>
+                <span class="award-date">September 2022</span>
+              </div>
+              <p class="award-description">Awarded by the Hungarian government with a tuition-free education BSc at ELTE</p>
+              <p class="award-location">Budapest, Hungary</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     </div>
     <script src="script.js"></script>
   </body>

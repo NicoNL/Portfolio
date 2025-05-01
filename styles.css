@@ -3,6 +3,7 @@
   --sy-color: #ffffff;
   --text-color: #333333;
   --bg-color: #16181b;
+  --bg-color-transparent: rgba(22, 24, 27, 0);
 }
 html {
   scroll-behavior: smooth;
@@ -14,16 +15,21 @@ body {
 }
 .navbar {
   top: 0;
+  position: fixed;
+  width: 100%;
   font-weight: bold;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0);
-  border: 2px solid rgba(0, 0, 0, 0);
+  background-image: linear-gradient(
+    var(--bg-color),
+    var(--bg-color-transparent)
+  );
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   margin-bottom: 0px;
+  align-items: center;
+  z-index: 1000;
 }
 
 .navbar a {
@@ -37,16 +43,16 @@ body {
 }
 
 .navbar a:hover {
-  background: linear-gradient(180deg, #ffffff, var(--bg-color));
+  background: linear-gradient(180deg, #ffffff, var(--bg-color-transparent));
   color: rgb(0, 0, 0);
 }
 
 .navbar a.active {
-  background: linear-gradient(180deg, var(--py-color), var(--bg-color));
+  background: linear-gradient(180deg, var(--py-color), var(--bg-color-transparent));
   color: white;
 }
 .navbar a.active:hover {
-  background: linear-gradient(180deg, var(--sy-color), var(--bg-color));
+  background: linear-gradient(180deg, var(--sy-color), var(--bg-color-transparent));
   color: rgb(0, 0, 0);
 }
 
@@ -55,7 +61,7 @@ body {
   margin-left: 10px;
 }
 .navbarLogo {
-  width: 60px;
+  width: 38px;
   height: auto;
 }
 .navbarLogo:hover {
@@ -70,24 +76,26 @@ body {
     "Helvetica Neue", Arial, sans-serif;
 }
 .introduction {
-  margin-top: 2%;
+  margin-top: 0;
+  min-height: 100vh;
   position: relative;
   display: flex;
   margin-left: 5%;
   margin-right: 5%;
 }
-.titles{
+.titles {
   width: 100%;
   z-index: 2;
+  margin-top: 15%;
 }
-.introContent{
+.introContent {
   margin-left: 3%;
   margin-right: 3%;
   position: relative;
   justify-content: space-between;
   display: flex;
   padding: 0;
-  width: 100%; 
+  width: 100%;
 }
 .nameTitle {
   color: var(--py-color);
@@ -121,7 +129,7 @@ body {
 
 @keyframes moveDots {
   from {
-    background-position: 0 0; 
+    background-position: 0 0;
   }
   to {
     background-position: 100% 0;
@@ -136,7 +144,628 @@ body {
   height: 90vh;
   filter: drop-shadow(20px 15px 10px rgba(0, 0, 0, 0.5));
 }
-#projects{
-  height: 1000px;
-  background-color: red;
+#experiences, #projects, #contact, #about {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to bottom, 
+      rgba(22, 24, 27, 0.3) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(22, 24, 27, 0.3) 100%
+    ),
+    linear-gradient(to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.01) 10%,
+      rgba(255, 255, 255, 0.01) 90%,
+      transparent 100%
+    ),
+    linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.01) 49%, rgba(255, 255, 255, 0.01) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.01) 49%, rgba(255, 255, 255, 0.01) 51%, transparent 52%);
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  animation: backgroundMove 20s linear infinite;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 50px 50px, 50px 50px;
+  }
+}
+
+.experiences-container,
+.contact-container,
+.about-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.experiences-title,
+.projects-title,
+.contact-title,
+.about-title {
+  width: 100%;
+  text-align: left;
+  margin: 0 0 40px 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.experiences-main-title,
+.projects-main-title,
+.contact-main-title,
+.about-main-title {
+  color: var(--py-color);
+  font-size: 90px;
+  margin: 0;
+  transform-origin: left;
+  transition: transform 0.4s ease, color 0.4s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.experiences-main-title:hover,
+.projects-main-title:hover,
+.contact-main-title:hover,
+.about-main-title:hover {
+  transform: scale(1.2);
+}
+
+.experiences-subtitle,
+.projects-subtitle,
+.contact-subtitle,
+.about-subtitle {
+  color: white;
+  font-size: 61px;
+  margin: 0;
+  transform-origin: left;
+  transition: transform 0.4s ease, color 0.4s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.experiences-subtitle:hover,
+.projects-subtitle:hover,
+.contact-subtitle:hover,
+.about-subtitle:hover {
+  transform: scale(1.2);
+}
+
+.carousel {
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  min-height: 80vh;
+  gap: 40px;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  padding: 30px;
+  width: 400px;
+  min-height: 480px;
+  height: auto;
+  transition: all 0.5s ease;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-card:hover {
+  transform: scale(1.05) translateY(-30px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border-color: var(--py-color);
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  background: linear-gradient(45deg, transparent, rgba(0, 229, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-image img,
+.card-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.card-video {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.experience-card:hover .card-image img,
+.experience-card:hover .card-image video {
+  transform: scale(1.05);
+}
+
+.card-content {
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.card-content h3 {
+  color: var(--py-color);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card-content h4 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.card-content .date {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.card-content .description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.skill-tag {
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--py-color);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  border: 1px solid var(--py-color);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(0, 229, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+}
+
+.project-button {
+  display: inline-block;
+  background: var(--py-color);
+  color: var(--bg-color);
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 25px;
+  border: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  align-self: center;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.project-button:hover {
+  background: #00ccff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
+}
+
+#home {
+  scroll-margin-top: 70px;
+}
+
+.contact-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.contact-link:hover {
+  color: var(--py-color);
+  text-decoration: underline;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  z-index: 10;
+}
+
+.fullscreen-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
+
+.video-container:hover .fullscreen-button {
+  opacity: 1;
+}
+
+.fullscreen-button:hover {
+  background: rgba(0, 229, 255, 0.8);
+}
+
+.card-video {
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide video controls by default, show only in fullscreen */
+.card-video:not(:fullscreen) {
+  cursor: pointer;
+}
+
+.card-video:not(:fullscreen)::-webkit-media-controls {
+  display: none !important;
+}
+
+.card-video:not(:fullscreen)::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.card-video:fullscreen {
+  cursor: default;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+/* Contact section specific styles */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border-color: var(--py-color);
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(0, 229, 255, 0.1);
+  transform: translateX(10px);
+}
+
+.contact-icon {
+  font-size: 24px;
+  color: var(--py-color);
+}
+
+.contact-details h3 {
+  color: var(--py-color);
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.contact-details p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-size: 16px;
+}
+
+.contact-form {
+  flex: 1;
+  padding: 20px;
+}
+
+.contact-form h2 {
+  color: var(--py-color);
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--py-color);
+  background: rgba(0, 229, 255, 0.05);
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* About section specific styles */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border-color: var(--py-color);
+}
+
+.about-intro {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.about-description:hover {
+  transform: translateX(5px);
+}
+
+.about-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  color: var(--py-color);
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.education-card, .award-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover, .award-card:hover {
+  background: rgba(0, 229, 255, 0.1);
+  transform: translateX(10px);
+}
+
+.education-header, .award-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.education-header h3, .award-header h3 {
+  color: var(--py-color);
+  margin: 0;
+  font-size: 20px;
+}
+
+.education-date, .award-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.education-degree, .education-location, .award-description, .award-location {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.skills-container {
+  display: grid;
+  gap: 30px;
+}
+
+.skill-category h3 {
+  color: var(--py-color);
+  font-size: 20px;
+  margin: 0 0 15px 0;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+  }
+  
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
+  .education-header, .award-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .education-date, .award-date {
+    margin-top: 5px;
+  }
+  
+  .about-card {
+    padding: 20px;
+  }
+}
+
+/* Standardize section titles */
+.experiences-title,
+.projects-title,
+.contact-title,
+.about-title {
+  width: 100%;
+  text-align: left;
+  margin: 0 0 40px 5%;
+  position: relative;
+  z-index: 2;
 }

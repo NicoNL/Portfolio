@@ -1,0 +1,24 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "image": "content/imgs/bexp.png",
+      "title": "Research project contributor",
+      "company": "B-Prepared",
+      "date": "April 2025 - Present",
+      "description": "Developing the object placement system for B-Prepared, an EU-funded research project that helps people learn emergency response skills for natural disasters through interactive VR and AR experiences. The project aims to provide dynamic training scenarios to better prepare communities for crisis situations.",
+      "skills": ["Unity", "C#", "Git", "Object-oriented programming"],
+      "projectUrl": "https://sztaki.hun-ren.hu/en/innovation/projects/b-prepared"
+    },
+    {
+      "id": 2,
+      "image": "content/imgs/cybersec.png",
+      "title": "Cybersecurity Team Member",
+      "company": "ELTE",
+      "date": "September 2022 - August 2023",
+      "description": "Contributed to the cybersecurity research team by developing Python-based tools for analyzing and implementing cryptographic methods. Focused on enhancing encryption techniques and implementing secure coding practices to protect sensitive data while strengthening cybersecurity fundamentals.",
+      "skills": ["Python", "Cryptography", "Cybersecurity"],
+      "projectUrl": "https://inf.elte.hu/content/cybersecurity-klub.t.4335"
+    }
+  ]
+} 
