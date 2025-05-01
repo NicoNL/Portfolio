@@ -1,4 +1,3 @@
-console.log("nigger")
 
 document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.navbar a');
